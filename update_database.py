@@ -12,8 +12,8 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 THIS_FOLDER = Path(__file__).parent.resolve()
 
-df = pd.read_sql_table("emissions_database", con=engine, index_col=None)
+df = pd.read_csv("emissions_file.csv")
 
-print(df.head())
+#df = pd.read_sql_table("emissions_database", con=engine, index_col=None)
 
-df.set_index('level_0').to_sql("emissions_database", con=engine, if_exists="replace")
+df.to_sql("emissions_database", con=engine, if_exists="replace")
