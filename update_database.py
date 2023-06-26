@@ -16,4 +16,4 @@ df = pd.read_sql_table("emissions_database", con=engine, index_col=None)
 
 print(df.head())
 
-df.to_sql("emissions_database", con=engine, if_exists="replace")
+df.set_index('Datetime').to_sql("emissions_database", con=engine, if_exists="replace")
