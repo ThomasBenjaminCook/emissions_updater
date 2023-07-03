@@ -48,7 +48,7 @@ def reduce(input_files, output_files):
         if(count > 300):
             count = 0
             datetime_name = ("v").join((datetime.split(" ")[0]).split("/"))
-            data_frame.to_csv(THIS_FOLDER / output_files+"/"+datetime_name+".csv")
+            data_frame.to_csv(str(THIS_FOLDER)+ "/"+ output_files+"/"+datetime_name+".csv")
             data_frame = pd.DataFrame()
             datetimes = []
             stations = []
