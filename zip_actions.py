@@ -3,8 +3,9 @@ def extract_all(extract_from, extract_to):
     import os
 
     script_directory = os.path.dirname(os.path.abspath(__file__)) #Directory of script
-    target_directory = os.path.join(script_directory, extract_from)
-    os.mkdir(target_directory)
+    target_directory = os.path.join(script_directory, extract_from) #Directory of files to extract
+    result_directory = os.path.join(script_directory, extract_to) #Directory of where to extract to
+    os.mkdir(result_directory)
 
     file_names = []
 
