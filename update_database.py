@@ -19,7 +19,7 @@ df = pd.read_sql_table("emissions_database", con=engine, index_col="index")
 
 print(get_recent_date(df))
 
-print(get_recent_date + dt.timedelta(days = 1))
+print(get_recent_date(df) + dt.timedelta(days = 1))
 
 df = update(df)
 
