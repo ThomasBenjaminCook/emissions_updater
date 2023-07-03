@@ -2,6 +2,7 @@ from pathlib import Path
 import pandas as pd
 from sqlalchemy import create_engine
 from updater import update
+from recent_date import get_recent_date
 
 SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="ThomasAppMaker",
@@ -14,6 +15,8 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL)
 THIS_FOLDER = Path(__file__).parent.resolve()
 
 df = pd.read_sql_table("emissions_database", con=engine, index_col="index")
+
+print(get_recent_date(df))
 
 df = update(df)
 
