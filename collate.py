@@ -24,7 +24,7 @@ def reduce(input_files, output_files):
 
     for file_name in file_names:
 
-        data = pd.read_csv(THIS_FOLDER / input_files + file_name)
+        data = pd.read_csv(str(THIS_FOLDER) + "/" + input_files + file_name)
 
         outputs = data.iloc[:,6].to_list()[1:-1]
         these_stations = data.iloc[:,5].to_list()[1:-1]
