@@ -1,4 +1,3 @@
-from pathlib import Path
 import pandas as pd
 from sqlalchemy import create_engine
 from updater import update
@@ -14,8 +13,6 @@ SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://{username}:{password}@{hostnam
     databasename="ThomasAppMaker$ipcollect",
 )
 engine = create_engine(SQLALCHEMY_DATABASE_URL) #Creates the object which must be passed to Pandas to interact with database.
-
-THIS_FOLDER = Path(__file__).parent.resolve() #Finds the path to the folder that the script is in. This means that the script can still run on PythonAnywhere.
 
 df = pd.read_sql_table("emissions_database", con=engine, index_col="index") #The dataframe created based on the database uses the column 'index' as the index column. This means the column dissapears. 
 
