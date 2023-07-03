@@ -13,6 +13,6 @@ def get_names(target_folder):
 
     for root, dirs, files in os.walk(target_directory):
         for file in files:
-            file_names.append((os.path.join(root, file)).split("\\")[-1])
+            file_names.append((os.path.join(root, file)).split("/")[-1])
     
     return(file_names)
