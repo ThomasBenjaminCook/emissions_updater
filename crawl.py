@@ -15,11 +15,10 @@ def activate_crawler(target_directory, date_boundary, url):
     import requests
     from bs4 import BeautifulSoup
     from urllib.parse import urljoin
-    from deleter import delete_files_in_folder
     import datetime as dt
 
     download_directory = os.path.join(os.getcwd(), target_directory) # Directory to save the downloaded files
-    delete_files_in_folder(target_directory) #Clears the directory.
+    os.mkdir(download_directory)
 
     response = requests.get(url) #Asks for the html page
 
